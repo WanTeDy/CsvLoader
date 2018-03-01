@@ -46,8 +46,9 @@ namespace CsvLoader.Logic.Helper
                     row = reader.ReadLine();
                     columns = row.Split(GlobalConsts.Splitter);
                     if (!_skuSet.Add(columns[skuIndex]))
-                        throw new InvalidArgumentException("Обнаружено совпадение для поля SKU: " + columns[skuIndex] + " | Ряд № " + rowIndex++);
+                        throw new InvalidArgumentException("Обнаружено совпадение для поля SKU: " + columns[skuIndex] + " | Ряд № " + rowIndex);
                     dataList.Add(columns);
+                    rowIndex++;
                 }
                 Model = new CSVImportModel(_columns, dataList);
                 Model.StartImportData();

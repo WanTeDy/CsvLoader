@@ -68,6 +68,9 @@
                 }
                 $('table.table').removeClass('hidden');
                 $('.progress').addClass('hidden');
+                var value = '0%';
+                $('.progress-bar').css('width', value);
+                $('.progress-text').text(value);
                 $('#loadFile').removeClass('disabled hidden');
             });
         });
