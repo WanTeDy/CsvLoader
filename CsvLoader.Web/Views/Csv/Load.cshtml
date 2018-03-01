@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Импорт CSV";
+}
+@section scripts {
+    @Scripts.Render("~/bundles/loaderHub")
+<script src="~/signalr/hubs"></script>
+<script src="~/Scripts/hub-functions.js"></script>
+}
+<div class="panel"></div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <input id="file" type="file" name="file" accept=".csv" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table hidden" style="margin-top:20px;">
+            <thead>
+                <tr>
+                    <th>Оригинал</th>
+                    <th>Стандарт</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <button id="loadFile" class="btn btn-success disabled">Загрузить</button>
+        <div class="progress text-center hidden">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0"
+                 aria-valuemin="0" aria-valuemax="100" style="width:0%">
+            </div>
+            <div class="progress-text" style="position:absolute;left:49%;">0%</div>
+        </div>
+    </div>
+</div>
+
+
+<div id="modal-show-message" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Сообщение</h4>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message" style="padding:20px;"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
